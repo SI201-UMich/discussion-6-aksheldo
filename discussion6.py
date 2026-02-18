@@ -89,7 +89,24 @@ class HorseRaces:
             tuple of fastest race name and the time
             EXAMPLE: ('Teio Sho', 14.8)
         '''
-        pass
+        
+        
+        fastest_time = 999.9
+        race_name = None
+
+        # check if horse doesn't exist
+        if horse not in self.race_dict:
+            return (race_name, fastest_time)
+
+        races = self.race_dict[horse]
+
+        for race, time in races.items():
+            if time < fastest_time:
+                race_name = race
+                fastest_time = time
+
+        
+        return (race_name, fastest_time)
 
 ###############################################################################
 ##### TASK 3
@@ -103,7 +120,13 @@ class HorseRaces:
             A dictionary of tuples of each horse, with their fastest race and time.
             EXAMPLE: {"Oguri Cap": ("Tenno Sho Fall", 16.6), "Mejiro McQueen": ("Tenno Sho Fall", 16.1)}
         '''
-        pass
+        
+        d = {}
+        
+        for horse in self.race_dict:
+            d[horse] = self.horse_fastest_race(horse)
+        
+        return d
 
 ###############################################################################
 ##### TASK 4
