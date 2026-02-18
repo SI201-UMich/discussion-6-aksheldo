@@ -57,7 +57,21 @@ class HorseRaces:
             inner keys are (str) races, inner values are (int) race times
             EXAMPLE: {'Special Week': {'Tenno Sho Fall': 16.5, 'Tenno Sho Spring': 16.3, 'Teio Sho': 17.0}}
         '''
-        pass
+        d = {}
+        heading_1 = table[0][1]
+        heading_2 = table[0][2]
+        heading_3 = table[0][3]
+
+        for list in table[1:]:
+            data_dict = {}
+            data_dict[heading_1] = float(list[1])
+            data_dict[heading_2] = float(list[2])
+            data_dict[heading_3] = float(list[3])
+            d[list[0]] = data_dict
+
+        return d
+
+    
 
 ###############################################################################
 ##### TASK 2
